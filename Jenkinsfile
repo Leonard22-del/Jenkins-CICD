@@ -10,7 +10,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                // replace git URL below with your git repo url
-                git branch: 'main', url: 'https://github.com/mecbob/jenkins-cicd.git'
+                git branch: 'master', url: 'https://github.com/Leonard22-del/Jenkins-CICD.git'
             }
         }
 
@@ -29,7 +29,7 @@ pipeline {
         stage('Scan') {
             steps {
                  dir('JJtechBatchApp') {
-                 withSonarQubeEnv(installationName: 'jenkins-sonar') { 
+                 withSonarQubeEnv(installationName: 'jenkins-sonar') { // sonar jenkins connectivity
                     // sh './mvn clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar'   To use a specific version of sonarqube
                     sh "${MAVEN_HOME}/bin/mvn clean sonar:sonar"       // uses the installed sonar plugin
                  } }
@@ -73,11 +73,11 @@ pipeline {
                     nexusArtifactUploader(
                         nexusVersion: 'nexus3',
                         protocol: 'http',
-                        nexusUrl: '18.196.157.115:8081/',  //replace me 
+                        nexusUrl: '3.80.208.181/:8081/',  //replace me 
                         repository: repository,
                         groupId: groupId,
                         version: version,
-                        credentialsId: 'nexus-credentials-id', // (optional) replace me
+                        credentialsId: 'Nexus-creds', // (optional) replace me
                         artifacts: [
                             [artifactId: artifactId, file: artifactPath, type: 'war']
                         ]
