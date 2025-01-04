@@ -73,7 +73,7 @@ pipeline {
                     nexusArtifactUploader(
                         nexusVersion: 'nexus3',
                         protocol: 'http',
-                        nexusUrl: '3.80.208.181/:8081/',  //replace me 
+                        nexusUrl: '3.80.208.181:8081',  //replace me 
                         repository: repository,
                         groupId: groupId,
                         version: version,
