@@ -3,7 +3,7 @@ pipeline {
     environment {
         MAVEN_HOME = '/usr/share/maven'  // maven home directory.  Obtain home directory using mvn --version
         ARTIFACT_PATH = 'JJtechBatchApp/target/JJtechBatchApp.war'
-        TOMCAT_URL = 'http://44.222.155.36:8080/'  // replace with your tomcat url
+        TOMCAT_URL = 'http://34.201.133.51:8080/'  // replace with your tomcat url
 
     }
     stages {
@@ -73,7 +73,7 @@ pipeline {
                     nexusArtifactUploader(
                         nexusVersion: 'nexus3',
                         protocol: 'http',
-                        nexusUrl: '3.80.208.181:8081',  //replace me 
+                        nexusUrl: '44.212.45.135:8081',  //replace me 
                         repository: repository,
                         groupId: groupId,
                         version: version,
